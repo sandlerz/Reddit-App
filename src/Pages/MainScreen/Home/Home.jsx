@@ -1,5 +1,12 @@
 export default function Home () {
   return (
-    <div>Home</div>
+    <div>
+      <div>
+        Display SubReddits
+      </div>
+      <div>
+        Aside
+      </div>
+    </div>
   )
 }
