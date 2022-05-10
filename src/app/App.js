@@ -1,11 +1,15 @@
-import React from 'react'
+import { Routes, Route } from 'react-router-dom'
+import Home from '../Pages/MainScreen/Home/Home'
+import MainScreen from '../Pages/MainScreen/MainScreen'
+import SubReddit from '../Pages/MainScreen/SubReddit/SubReddit'
 
-function App () {
+export default function App () {
   return (
-    <div className='App'>
-      Hola Mundo
-    </div>
+    <Routes>
+      <Route path='/' element={<MainScreen />}>
+        <Route index element={<Home />} />
+        <Route path=':subreddit' element={<SubReddit />} />
+      </Route>
+    </Routes>
   )
 }
-
-export default App
