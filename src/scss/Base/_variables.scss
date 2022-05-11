@@ -1,27 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
-
-html {
-  box-sizing: border-box;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
-  margin: 0;
-  padding: 0;
-}
-
 :root {
   --Bg-color: hsl(197, 5%, 26%);
   --Bg-elements: hsl(197, 4%, 33%);
 
   --Text-first: hsl(0, 0%, 95%);
   --Text-second: hsl(202, 3%, 50%);
+  --Text-third: hsl(240, 2%, 92%);
 
+  --Reddit-color: hsl(16, 100%, 60%);
+  --Reddit-color-filter: invert(48%) sepia(64%) saturate(2588%)
+    hue-rotate(340deg) brightness(108%) contrast(102%);
   --Hover: hsl(192, 5%, 20%);
   --Search: hsl(195, 5%, 15%);
-  --Border: hsl(197, 4%, 34%);
+  --Nav-border-icon: hsl(197, 4%, 34%);
+  --color-icon: hsl(200, 13%, 47%);
+  --filter-color-icon: invert(50%) sepia(23%) saturate(320%) hue-rotate(155deg)
+    brightness(89%) contrast(82%);
 
   --p-font-size-small: 0.875rem;
   --p-font-size-medium: 1rem;
@@ -33,8 +26,6 @@ html {
 
   --font-weight-regular: 400;
   --font-weight-semiBold: 600;
-}
 
-body {
-  font-family: 'Montserrat', sans-serif;
+  --font-family: 'Montserrat', sans-serif;
 }

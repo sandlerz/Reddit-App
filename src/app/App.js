@@ -3,12 +3,15 @@ import Home from '../Pages/MainScreen/Home/Home'
 import MainScreen from '../Pages/MainScreen/MainScreen'
 import SubReddit from '../Pages/MainScreen/SubReddit/SubReddit'
 
-export default function App () {
+export default function App() {
   return (
     <Routes>
-      <Route path='/' element={<MainScreen />}>
+      <Route path="/" element={<MainScreen />}>
         <Route index element={<Home />} />
-        <Route path=':subreddit' element={<SubReddit />} />
+        <Route path="/new" element={<Home />} />
+        <Route path="/top" element={<Home />} />
+        <Route path="/rising" element={<Home />} />
+        <Route path=":subreddit" element={<SubReddit />} />
       </Route>
     </Routes>
   )

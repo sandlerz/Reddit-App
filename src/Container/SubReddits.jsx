@@ -1,5 +1,3 @@
-export default function SubReddits () {
-  return (
-    <div>SubReddits</div>
-  )
+export default function SubReddits() {
+  return <div>SubReddits</div>
 }

@@ -1,0 +1,54 @@
+.navLinks {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  border-bottom: dashed 0.125rem var(--Nav-border-icon);
+
+  .navLinks__item {
+    &__icon {
+      width: 2.1875rem;
+      height: 2.1875rem;
+      display: grid;
+      place-content: center;
+    }
+  }
+}
+
+.navItem,
+.isActive {
+  color: var(--Text-second);
+  text-decoration: none;
+  font-size: var(--h-font-size-medium);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 8rem;
+  height: 3.5rem;
+}
+
+.isActive {
+  color: var(--Text-third);
+  border: 0.125rem solid var(--Nav-border-icon);
+  border-bottom: 0.125rem solid var(--Bg-color);
+  border-radius: 0.3125rem 0.3125rem 0 0;
+  position: relative;
+  top: 0.125rem;
+}
+
+.iconActive {
+  position: relative;
+  filter: var(--Reddit-color-filter);
+  transition: all 1s;
+  transform: scale(1.1);
+  animation: NavLink 0.5s infinite alternate ease-in-out;
+
+  @keyframes NavLink {
+    from {
+      top: 0;
+    }
+    to {
+      top: 0.3125rem;
+    }
+  }
+}

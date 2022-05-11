@@ -1,0 +1,26 @@
+.headerTop {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.9375rem;
+  padding: 0.625rem;
+  width: 100vw;
+
+  &__redditLogo {
+    width: 3.125rem;
+    background-color: var(--Reddit-color);
+    border-radius: 0.625rem;
+    padding: 0.1875rem;
+    height: 3.125rem;
+  }
+
+  &__darkMode {
+    width: 2.1875rem;
+    height: 2.1875rem;
+    background-color: var(--color-icon);
+    border-radius: 0.625rem;
+    padding: 0.1875rem;
+    display: grid;
+    place-content: center;
+  }
+}

@@ -6,7 +6,7 @@ const subRedditsData = createSlice({
   initialState: {
     data: [],
     isLoading: false,
-    hasError: false
+    hasError: false,
   },
   reducers: {},
   extraReducers: builder => {
@@ -23,13 +23,13 @@ const subRedditsData = createSlice({
         state.isLoading = false
         state.hasError = true
       })
-  }
+  },
 })
 
 const store = configureStore({
   reducer: {
-    data: subRedditsData
-  }
+    data: subRedditsData.reducer,
+  },
 })
 
 export default store
