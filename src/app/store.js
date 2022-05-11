@@ -1,34 +1,9 @@
-import { configureStore, createSlice } from '@reduxjs/toolkit'
-import fetchSubreddits from '../Util/fetchSubreddits'
-
-const subRedditsData = createSlice({
-  name: 'subRedditData',
-  initialState: {
-    data: [],
-    isLoading: false,
-    hasError: false,
-  },
-  reducers: {},
-  extraReducers: builder => {
-    builder
-      .addCase(fetchSubreddits.pending, (state, action) => {
-        state.isLoading = true
-        state.hasError = false
-      })
-      .addCase(fetchSubreddits.fulfilled, (state, action) => {
-        state.isLoading = false
-        state.hasError = false
-      })
-      .addCase(fetchSubreddits.rejected, (state, action) => {
-        state.isLoading = false
-        state.hasError = true
-      })
-  },
-})
+import { configureStore } from '@reduxjs/toolkit'
+import allSubRedditsReducer from '../Pages/MainScreen/Home/HomeSlice'
 
 const store = configureStore({
   reducer: {
-    data: subRedditsData.reducer,
+    allSubReddits: allSubRedditsReducer,
   },
 })
 

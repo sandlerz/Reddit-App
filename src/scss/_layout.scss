@@ -7,10 +7,10 @@
   width: 100vw;
 
   &__redditLogo {
-    width: 3.125rem;
-    background-color: var(--Reddit-color);
-    border-radius: 0.625rem;
-    padding: 0.1875rem;
+    // width: 3.125rem;
+    // background-color: var(--Reddit-color);
+    // border-radius: 0.625rem;
+    // padding: 0.1875rem;
     height: 3.125rem;
   }
 
@@ -23,4 +23,21 @@
     display: grid;
     place-content: center;
   }
+}
+
+.home {
+  display: grid;
+  grid-template-columns: 47.1875rem 20.75rem;
+  justify-content: center;
+  gap: 1rem;
+}
+
+header {
+  margin-bottom: 1.25rem;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
 }

@@ -3,7 +3,7 @@
   --Bg-elements: hsl(197, 4%, 33%);
 
   --Text-first: hsl(0, 0%, 95%);
-  --Text-second: hsl(202, 3%, 50%);
+  --Text-second: hsl(197, 3%, 50%);
   --Text-third: hsl(240, 2%, 92%);
 
   --Reddit-color: hsl(16, 100%, 60%);
@@ -16,9 +16,12 @@
   --filter-color-icon: invert(50%) sepia(23%) saturate(320%) hue-rotate(155deg)
     brightness(89%) contrast(82%);
 
-  --p-font-size-small: 0.875rem;
-  --p-font-size-medium: 1rem;
-  --p-font-size-large: 1.125rem;
+  --filter-color-icon-2: invert(63%) sepia(11%) saturate(630%)
+    hue-rotate(155deg) brightness(86%) contrast(88%);
+
+  --p-font-size-small: 0.75rem;
+  --p-font-size-medium: 0.875rem;
+  --p-font-size-large: 1rem;
 
   --h-font-size-small: 1.125rem;
   --h-font-size-medium: 1.25rem;

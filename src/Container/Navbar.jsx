@@ -17,7 +17,7 @@ export default function Navbar() {
             </NavLink>
           </li>
           <li className="navLinks__item">
-            <NavLink icon={hotIcon} path="/hot">
+            <NavLink icon={hotIcon} path="/top">
               top
             </NavLink>
           </li>
@@ -27,7 +27,7 @@ export default function Navbar() {
             </NavLink>
           </li>
           <li className="navLinks__item">
-            <NavLink icon={topIcon} path="/top">
+            <NavLink icon={topIcon} path="/rising">
               Rising
             </NavLink>
           </li>

@@ -1,4 +1,4 @@
-import RedditLogo from '../assets/images/icons8-reddit.svg'
+import RedditLogo from '../assets/images/reddit-avatar.png'
 import SearchIcon from '../assets/images/search-icon.svg'
 import Moon from '../assets/images/moon.svg'
 

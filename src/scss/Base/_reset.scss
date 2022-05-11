@@ -17,6 +17,7 @@ body {
   background-color: var(--Bg-color);
   display: flex;
   justify-content: center;
+  overflow-x: hidden;
 }
 
 h1,
@@ -32,8 +33,10 @@ p {
 }
 
 img {
-  height: auto;
+  display: block;
+  height: 100%;
   max-width: 100%;
+  width: 100%;
 }
 
 li {

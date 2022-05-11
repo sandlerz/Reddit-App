@@ -8,10 +8,8 @@ export default function App() {
     <Routes>
       <Route path="/" element={<MainScreen />}>
         <Route index element={<Home />} />
-        <Route path="/new" element={<Home />} />
-        <Route path="/top" element={<Home />} />
-        <Route path="/rising" element={<Home />} />
-        <Route path=":subreddit" element={<SubReddit />} />
+        <Route path=":popular" element={<Home />} />
+        <Route path=":popular/:subreddit" element={<SubReddit />} />
       </Route>
     </Routes>
   )
