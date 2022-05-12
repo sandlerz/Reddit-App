@@ -1,0 +1,85 @@
+.skeleton {
+  background-color: #ddd;
+}
+
+.score {
+  width: 1.875rem;
+  height: 3.125rem;
+}
+
+.img {
+  width: 8.125rem;
+  height: 5.9375rem;
+  border-radius: 0.5rem;
+}
+
+.title {
+  width: 95%;
+  height: 1.375rem;
+  margin-bottom: 0.625rem;
+}
+
+.avatar-small {
+  min-width: 0.9375rem;
+  height: 0.9375rem;
+  border-radius: 50%;
+}
+
+.text {
+  width: 45%;
+  height: 0.75rem;
+}
+
+.dashboard {
+  width: 30%;
+  height: 0.75rem;
+}
+
+.avatar-medium {
+  min-width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+}
+
+.number {
+  width: 0.9375rem;
+  height: 1.1875rem;
+}
+
+.shimmer-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  animation: loading 0.9s infinite ease-out;
+}
+
+.shimmer {
+  width: 10%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: skewX(-20deg);
+  box-shadow: 0 0 3.125rem 0.625rem hsla(0, 0%, 100%, 0.2);
+}
+
+@keyframes loading {
+  0% {
+    transform: translateX(-20%);
+  }
+  100% {
+    transform: translateX(120%);
+  }
+}
+
+.subReddit {
+  // animation's skeleton purposes
+  position: relative;
+  overflow: hidden;
+}
+
+.communities {
+  // animation's skeleton purposes
+  position: relative;
+  overflow: hidden;
+}

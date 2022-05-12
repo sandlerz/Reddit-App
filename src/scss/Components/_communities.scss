@@ -21,6 +21,7 @@
 
   &__img {
     max-width: 2.5rem;
+    width: 100%;
     height: 2.5rem;
     border-radius: 50%;
     overflow: hidden;
@@ -28,6 +29,7 @@
   }
 
   &__body {
+    width: 100%;
     display: flex;
     flex-direction: column;
 

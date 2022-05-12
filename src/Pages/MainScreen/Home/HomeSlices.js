@@ -80,7 +80,10 @@ const communities = createSlice({
 })
 
 export const selectAllSubReddits = state => state.allSubReddits.data
+export const isLoadingSubReddits = state => state.allSubReddits.isLoading
+
 export const selectCommunities = state => state.communities.data
+export const isLoadingCommunities = state => state.communities.isLoading
 
 export default {
   allSubReddits: allSubReddits.reducer,
