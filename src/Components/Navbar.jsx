@@ -1,9 +1,9 @@
-import TopHeader from '../Components/TopHeader'
+import TopHeader from './TopHeader'
 import bestIcon from '../assets/images/best.svg'
 import hotIcon from '../assets/images/hot.svg'
 import newIcon from '../assets/images/new.svg'
 import topIcon from '../assets/images/top.svg'
-import NavLink from '../Components/NavLink'
+import NavLink from './NavLink'
 
 export default function Navbar() {
   return (

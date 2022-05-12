@@ -1,56 +1,25 @@
-.headerTop {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 15px;
-  padding: 10px;
-  width: 100vw;
-
-  &__redditLogo {
-    // width: 50px;
-    // background-color: var(--Reddit-color);
-    // border-radius: 10px;
-    // padding: 3px;
-    height: 50px;
-  }
-
-  &__darkMode {
-    width: 35px;
-    height: 35px;
-    background-color: var(--color-icon);
-    border-radius: 10px;
-    padding: 3px;
-    display: grid;
-    place-content: center;
-  }
-}
-
-.home {
-  display: grid;
-  grid-template-columns: 755px 332px;
-  justify-content: center;
-  gap: 16px;
-}
-
 header {
   margin-bottom: 20px;
 }
 
-main {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+.home {
+  display: grid;
+  grid-template-columns: 56.25rem 20.625rem;
+  justify-content: center;
+  gap: 16px;
+
+  main {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
 }
 
 .aside {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  position: relative;
-
   &__communities {
     background-color: var(--Bg-elements);
     border-radius: 10px;
+    margin-bottom: 0.625rem;
     position: sticky;
     top: 10px;
 
@@ -64,54 +33,7 @@ main {
     }
 
     &__container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
       padding: 0.625rem;
-    }
-  }
-
-  &__about {
-    background-color: var(--Bg-elements);
-    border-radius: 10px;
-    position: sticky;
-    top: 41.875rem;
-
-    &__title {
-      color: var(--Text-first);
-      font-size: var(--h-font-size-small-small);
-      border-bottom: 1px solid var(--Bg-color);
-      padding: 5px 0;
-      text-indent: 10px;
-      font-weight: var(--font-weight-regular);
-    }
-
-    &__body {
-      display: flex;
-      flex-direction: column;
-      padding: 10px;
-
-      &__item {
-        display: flex;
-        gap: 0.5rem;
-        align-items: center;
-        height: 1.875rem;
-        padding: 20px 0.3125rem;
-        border-radius: 5px;
-
-        &:hover {
-          background-color: var(--Bg-color);
-          transition: background 0.1s;
-        }
-
-        &__img {
-          max-width: 25px;
-        }
-        &__text {
-          font-size: var(--p-font-size-medium);
-          color: var(--Text-third);
-        }
-      }
     }
   }
 }

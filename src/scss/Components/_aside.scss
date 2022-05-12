@@ -1,0 +1,43 @@
+.aside__about {
+  background-color: var(--Bg-elements);
+  border-radius: 0.625rem;
+  position: sticky;
+  top: 41.875rem;
+
+  &__title {
+    color: var(--Text-first);
+    font-size: var(--h-font-size-small-small);
+    border-bottom: 1px solid var(--Bg-color);
+    padding: 5px 0;
+    text-indent: 10px;
+    font-weight: var(--font-weight-regular);
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    padding: 0.625rem;
+
+    &__item {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+      height: 1.875rem;
+      padding: 20px 0.3125rem;
+      border-radius: 0.3125rem;
+
+      &:hover {
+        background-color: var(--Bg-color);
+        transition: background 0.1s;
+      }
+
+      &__img {
+        max-width: 25px;
+      }
+      &__text {
+        font-size: var(--p-font-size-medium);
+        color: var(--Text-third);
+      }
+    }
+  }
+}

@@ -21,7 +21,7 @@ export const getAllSubReddits = async (category = '') => {
       }
     }
 
-    throw new Error('Request failed!')
+    throw new Error('All subreddits Request failed!')
   } catch (error) {
     console.log(error)
   }
@@ -42,7 +42,7 @@ const getAllCommunities = async () => {
       return refactoredData
     }
 
-    throw new Error('Request failed!')
+    throw new Error('All Communities Request failed!')
   } catch (error) {
     console.log(error)
   }

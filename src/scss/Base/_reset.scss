@@ -15,9 +15,7 @@ html {
 body {
   font-family: var(--font-family);
   background-color: var(--Bg-color);
-  display: flex;
-  justify-content: center;
-  overflow-x: hidden;
+  // overflow-x: hidden;
 }
 
 h1,
@@ -35,7 +33,6 @@ p {
 img {
   display: block;
   height: 100%;
-  max-width: 100%;
   width: 100%;
 }
 
@@ -56,5 +53,5 @@ input {
 }
 
 input[type='text']:focus {
-  outline: none;
+  outline: var(--Reddit-color) 0.125rem solid;
 }
