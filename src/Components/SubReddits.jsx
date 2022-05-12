@@ -4,15 +4,10 @@ import commentIcon from '../assets/images/comment-icon.svg'
 import shareIcon from '../assets/images/share-icon.svg'
 import expandIcon from '../assets/images/expand-icon.svg'
 import avatar from '../assets/images/reddit-avatar.png'
+import { objImg } from '../Util/util'
 
 export default function SubReddits({ data }) {
   const { author, comments, score, subRedditName, thumbnail, title } = data
-
-  const objImges = {
-    self: 'https://www.reddit.com/static/self_default2.png',
-    default: 'https://www.reddit.com/static/noimage.png',
-    nsfw: 'https://www.reddit.com/static/nsfw2.png',
-  }
 
   return (
     <div className="subReddit">
@@ -29,7 +24,7 @@ export default function SubReddits({ data }) {
       </div>
       <div className="subReddit__thumbnail">
         <img
-          src={thumbnail.startsWith('http') ? thumbnail : objImges[thumbnail]}
+          src={thumbnail.startsWith('http') ? thumbnail : objImg[thumbnail]}
           alt=""
         />
       </div>

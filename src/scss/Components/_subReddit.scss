@@ -4,6 +4,11 @@
   padding: 0.625rem 0;
   border-radius: 0.3125rem;
 
+  &:hover {
+    background-color: var(--Hover);
+    transition: 0.1s background;
+  }
+
   &__score-container {
     min-width: 3.125rem;
     display: flex;
@@ -128,10 +133,5 @@
         filter: var(--filter-color-icon-2);
       }
     }
-  }
-
-  &:hover {
-    background-color: var(--Hover);
-    transition: 0.1s background;
   }
 }
