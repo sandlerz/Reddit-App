@@ -16,13 +16,18 @@ export default function TopHeader() {
     }
   }
 
+  const handleClick = () => {
+    navigate(`/search/${textInput}`)
+    setTextInput('')
+  }
+
   return (
     <div className="headerTop">
       <button className="headerTop__redditLogo">
         <img src={RedditLogo} alt="logo" />
       </button>
       <button className="search">
-        <div className="search__icon">
+        <div className="search__icon" onClick={handleClick}>
           <img src={SearchIcon} alt="" />
         </div>
         <input
