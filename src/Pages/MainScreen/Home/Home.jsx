@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 import SubReddits from '../../../Components/SubReddits'
 import About from '../../../Components/About'
 import { useDispatch, useSelector } from 'react-redux'
-import { getAllSubReddits, getCommunities } from './HomeSlices'
+import { getAllSubReddits, getCommunities, getSearch } from './HomeSlices'
 import { useParams } from 'react-router-dom'
 import {
   selectAllSubReddits,
@@ -16,28 +16,33 @@ import SkeletonSubReddits from '../../../Components/Skeleton/SkeletonSubReddits'
 import SkeletonCommunities from '../../../Components/Skeleton/SkeletonCommunities'
 
 export default function Home() {
-  const { popular } = useParams()
+  const { popular, term } = useParams()
   const allSubReddits = useSelector(selectAllSubReddits)
   const loadingSubReddits = useSelector(isLoadingSubReddits)
   const loadingCommunities = useSelector(isLoadingCommunities)
   const communities = useSelector(selectCommunities)
   const dispatch = useDispatch()
 
-  const mapSubReddits = allSubReddits[popular || 'best'].map(subReddit => (
-    <SubReddits data={subReddit} key={subReddit.id} />
-  ))
+  const mapSubReddits = allSubReddits[term || popular || 'best']?.map(
+    subReddit => <SubReddits data={subReddit} key={subReddit.id} />
+  )
 
-  const dataCommunities = communities.slice(0, 10)
-  const mapCommunities = dataCommunities.map((community, index) => (
+  const dataCommunities = communities[term || 'home']?.slice(0, 10)
+  const mapCommunities = dataCommunities?.map((community, index) => (
     <NavCommunities data={community} key={community.id} index={index + 1} />
   ))
 
   useEffect(() => {
-    if (allSubReddits[popular || 'best'].length > 0) return
+    if (allSubReddits[term]) return
+    if (term) {
+      dispatch(getSearch({ term: term, type: 'link' }))
+      dispatch(getSearch({ term: term, type: 'sr' }))
+    }
+    if (allSubReddits[popular || 'best']?.length > 0) return
     dispatch(getAllSubReddits({ category: popular }))
-    if (communities.length > 0) return
+    if (communities.home.length > 0) return
     dispatch(getCommunities())
-  }, [popular])
+  }, [popular, term])
 
   return (
     <div className="home">

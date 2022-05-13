@@ -1,6 +1,6 @@
 import { NavLink as NavItem } from 'react-router-dom'
 
-export default function NavLink({ icon, path, children }) {
+export default function NavLink({ icon, path, path2 = '1', children }) {
   return (
     <NavItem
       to={path}

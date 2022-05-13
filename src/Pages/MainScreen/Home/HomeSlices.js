@@ -19,26 +19,31 @@ export const getCommunities = createAsyncThunk(
   }
 )
 
-const initialState = {
-  data: {
-    best: [],
-    top: [],
-    new: [],
-    rising: [],
-  },
-  isLoading: false,
-  hasError: false,
-}
+export const getSearch = createAsyncThunk(
+  'allSubreddits/getSearch',
+  async ({ term, type }) => {
+    const data = await Fetch.getSearch(term, type)
+    return data
+  }
+)
 
 const allSubReddits = createSlice({
   name: 'allSubReddits',
-  initialState,
+  initialState: {
+    data: {
+      best: [],
+      top: [],
+      new: [],
+      rising: [],
+    },
+    isLoading: false,
+    hasError: false,
+  },
   reducers: {},
   extraReducers: builder => {
-    builder
+    builder // Default subReddit Chunk!
       .addCase(getAllSubReddits.pending, state => {
         state.isLoading = true
-        state.hasError = false
       })
       .addCase(getAllSubReddits.fulfilled, (state, action) => {
         const { category, refactoredData } = action.payload
@@ -47,7 +52,21 @@ const allSubReddits = createSlice({
         state.hasError = false
       })
       .addCase(getAllSubReddits.rejected, state => {
-        state.isLoading = false
+        state.hasError = true
+      })
+      // Search chunk!
+      .addCase(getSearch.pending, state => {
+        state.isLoading = true
+      })
+      .addCase(getSearch.fulfilled, (state, action) => {
+        const { payload } = action
+        if (payload[0]?.type === 't3') {
+          state.data[payload[0].term] = action.payload
+          state.isLoading = false
+          state.hasError = false
+        }
+      })
+      .addCase(getSearch.rejected, state => {
         state.hasError = true
       })
   },
@@ -56,7 +75,9 @@ const allSubReddits = createSlice({
 const communities = createSlice({
   name: 'communities',
   initialState: {
-    data: [],
+    data: {
+      home: [],
+    },
     isLoading: false,
     hasError: false,
   },
@@ -65,15 +86,28 @@ const communities = createSlice({
     builder
       .addCase(getCommunities.pending, state => {
         state.isLoading = true
-        state.hasError = false
       })
       .addCase(getCommunities.fulfilled, (state, action) => {
-        state.data = action.payload
+        state.data.home = action.payload
         state.isLoading = false
         state.hasError = false
       })
       .addCase(getCommunities.rejected, state => {
-        state.isLoading = false
+        state.hasError = true
+      })
+      // Search Chuck!
+      .addCase(getSearch.pending, state => {
+        state.isLoading = true
+      })
+      .addCase(getSearch.fulfilled, (state, action) => {
+        const { payload } = action
+        if (payload[0]?.type === 't5') {
+          state.data[payload[0].term] = action.payload
+          state.isLoading = false
+          state.hasError = false
+        }
+      })
+      .addCase(getSearch.rejected, state => {
         state.hasError = true
       })
   },

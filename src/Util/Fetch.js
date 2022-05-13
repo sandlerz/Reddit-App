@@ -1,6 +1,7 @@
+/* eslint-disable import/no-anonymous-default-export */
 const API_URL = 'https://www.reddit.com'
 
-export const getAllSubReddits = async (category = '') => {
+export const getAllSubReddits = async (category = 'best') => {
   try {
     const response = await fetch(`${API_URL}/${category}.json`)
 
@@ -48,8 +49,38 @@ const getAllCommunities = async () => {
   }
 }
 
-// eslint-disable-next-line import/no-anonymous-default-export
+const getSearch = async (term, type) => {
+  try {
+    const response = await fetch(
+      `${API_URL}/search/.json?q=${term}&type=${type}`
+    )
+    if (response.ok) {
+      const { data } = await response.json()
+      const refactoredData = data.children.map(({ data, kind }) => ({
+        title: data.title,
+        subRedditName: data.subreddit_name_prefixed,
+        author: data.author,
+        score: data.score,
+        comments: data.num_comments,
+        thumbnail: data.thumbnail,
+        icon: data.icon_img,
+        communityName: data.display_name_prefixed,
+        subscribers: data.subscribers,
+        id: data.id,
+        type: kind,
+        term: term,
+      }))
+      return refactoredData
+    }
+
+    throw new Error('Search request failed!')
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 export default {
   getAllSubReddits,
   getAllCommunities,
+  getSearch,
 }

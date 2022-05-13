@@ -9,7 +9,7 @@ export default function App() {
       <Route path="/" element={<MainScreen />}>
         <Route index element={<Home />} />
         <Route path=":popular" element={<Home />} />
-        <Route path=":popular/:subreddit" element={<SubReddit />} />
+        <Route path="/search/:term" element={<Home />} />
       </Route>
     </Routes>
   )

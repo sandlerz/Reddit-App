@@ -2,7 +2,7 @@ import SkeletonElement from './SkeletonElement'
 
 export default function SkeletonCommunities() {
   const mapSkeleton = [...Array(10).keys()].map(index => (
-    <div className="communities">
+    <div className="communities" key={index}>
       <SkeletonElement type="number" />
       <SkeletonElement type="avatar-medium" />
       <div className="communities__body">
