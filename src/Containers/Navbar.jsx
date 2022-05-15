@@ -1,14 +1,12 @@
-import SearchBar from './SearchBar'
 import bestIcon from '../assets/images/best.svg'
 import hotIcon from '../assets/images/hot.svg'
 import newIcon from '../assets/images/new.svg'
 import topIcon from '../assets/images/top.svg'
-import NavLink from './NavLink'
+import NavLink from '../Components/NavLink'
 
 export default function Navbar() {
   return (
     <header>
-      <SearchBar />
       <nav>
         <ul className="navLinks">
           <li className="navLinks__item">

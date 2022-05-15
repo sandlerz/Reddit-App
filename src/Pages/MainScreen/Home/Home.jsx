@@ -1,17 +1,17 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect } from 'react'
+import { useParams } from 'react-router-dom'
 import SubReddits from '../../../Components/SubReddits'
-import About from '../../../Components/About'
+import About from '../../../Containers/About'
+import NavCommunities from '../../../Containers/NavCommunities'
 import { useDispatch, useSelector } from 'react-redux'
 import { getAllSubReddits, getCommunities, getSearch } from './HomeSlices'
-import { useParams } from 'react-router-dom'
 import {
   selectAllSubReddits,
   isLoadingSubReddits,
   selectCommunities,
   isLoadingCommunities,
 } from './HomeSlices'
-import NavCommunities from '../../../Components/NavCommunities'
 import SkeletonSubReddits from '../../../Components/Skeleton/SkeletonSubReddits'
 import SkeletonCommunities from '../../../Components/Skeleton/SkeletonCommunities'
 
