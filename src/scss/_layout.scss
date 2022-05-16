@@ -20,18 +20,33 @@ header {
       background-color: var(--Bg-elements);
       border-radius: 10px;
       margin-bottom: 0.625rem;
+      overflow: hidden;
+
+      &__title,
+      &__more-communities {
+        color: var(--Text-first);
+        padding: 5px 0;
+        font-weight: var(--font-weight-regular);
+      }
 
       &__title {
-        color: var(--Text-first);
+        border-bottom: 0.0625rem solid var(--Bg-color);
         font-size: var(--h-font-size-small-small);
-        border-bottom: 1px solid var(--Bg-color);
-        padding: 5px 0;
         text-indent: 10px;
-        font-weight: var(--font-weight-regular);
       }
 
       &__container {
         padding: 0.625rem;
+      }
+
+      &__more-communities {
+        text-align: center;
+        border-top: 0.0625rem solid var(--Bg-color);
+        font-size: var(--p-font-size-medium);
+        cursor: pointer;
+        &:hover {
+          text-decoration: underline;
+        }
       }
     }
   }
