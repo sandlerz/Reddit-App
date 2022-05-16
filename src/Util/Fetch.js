@@ -1,9 +1,9 @@
 /* eslint-disable import/no-anonymous-default-export */
 const API_URL = 'https://www.reddit.com'
 
-export const getAllSubReddits = async (category = 'best') => {
+export const getAllSubReddits = async (subreddits = 'best') => {
   try {
-    const response = await fetch(`${API_URL}/${category}.json`)
+    const response = await fetch(`${API_URL}/${subreddits}.json`)
 
     if (response.ok) {
       const { data } = await response.json()
@@ -16,8 +16,9 @@ export const getAllSubReddits = async (category = 'best') => {
         thumbnail: data.thumbnail,
         id: data.id,
       }))
+      console.log(subreddits)
       return {
-        category: category ? category : 'best',
+        subreddits: subreddits ? subreddits : 'best',
         refactoredData,
       }
     }

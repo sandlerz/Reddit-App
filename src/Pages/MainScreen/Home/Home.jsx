@@ -9,24 +9,33 @@ import SkeletonSubReddits from '../../../Components/Skeleton/SkeletonSubReddits'
 import Aside from './Aside/Aside'
 
 export default function Home() {
-  const { popular, term } = useParams()
+  const { subreddits, term, community } = useParams()
   const allSubReddits = useSelector(selectAllSubReddits)
   const loadingSubReddits = useSelector(isLoadingSubReddits)
   const dispatch = useDispatch()
 
-  const mapSubReddits = allSubReddits[term || popular || 'best']?.map(
+  let mapSubReddits = allSubReddits[term || subreddits || 'best']?.map(
     subReddit => <SubReddits data={subReddit} key={subReddit.id} />
   )
 
+  if (community) {
+    mapSubReddits = allSubReddits[`r/${community}`]?.map(subReddit => (
+      <SubReddits data={subReddit} key={subReddit.id} />
+    ))
+  }
+
   useEffect(() => {
-    if (allSubReddits[term]) return
-    if (term) {
+    if (allSubReddits[term] === undefined) {
       dispatch(getSearch({ term: term, type: 'link' }))
       dispatch(getSearch({ term: term, type: 'sr' }))
     }
-    if (allSubReddits[popular || 'best']?.length > 0) return
-    dispatch(getAllSubReddits({ category: popular }))
-  }, [popular, term])
+    if (allSubReddits[subreddits || 'best']?.length === 0) {
+      dispatch(getAllSubReddits({ subreddits: subreddits }))
+    }
+    if (allSubReddits[`r/${community}`] === undefined && community) {
+      dispatch(getAllSubReddits({ subreddits: `r/${community}` }))
+    }
+  }, [subreddits, term, community])
 
   return (
     <div className="home">

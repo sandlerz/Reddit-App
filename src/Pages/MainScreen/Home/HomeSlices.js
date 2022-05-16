@@ -5,8 +5,8 @@ import Fetch from '../../../Util/Fetch'
 
 export const getAllSubReddits = createAsyncThunk(
   'allSubReddits/getAllSubReddits',
-  async ({ category }) => {
-    const data = await Fetch.getAllSubReddits(category)
+  async ({ subreddits }) => {
+    const data = await Fetch.getAllSubReddits(subreddits)
     return data
   }
 )
@@ -38,8 +38,8 @@ const allSubReddits = createSlice({
         state.isLoading = true
       })
       .addCase(getAllSubReddits.fulfilled, (state, action) => {
-        const { category, refactoredData } = action.payload
-        state.data[category] = refactoredData
+        const { subreddits, refactoredData } = action.payload
+        state.data[subreddits] = refactoredData
         state.isLoading = false
         state.hasError = false
       })
@@ -54,6 +54,10 @@ const allSubReddits = createSlice({
         const { payload } = action
         if (payload[0]?.type === 't3') {
           state.data[payload[0].term] = action.payload
+          state.isLoading = false
+          state.hasError = false
+        }
+        if (payload[0]?.type === 't5') {
           state.isLoading = false
           state.hasError = false
         }
