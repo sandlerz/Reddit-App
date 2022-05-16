@@ -13,27 +13,32 @@ header {
     flex-direction: column;
     gap: 10px;
   }
-}
 
-.aside {
-  &__communities {
-    background-color: var(--Bg-elements);
-    border-radius: 10px;
-    margin-bottom: 0.625rem;
-    position: sticky;
-    top: 10px;
+  .aside {
+    position: relative;
 
-    &__title {
-      color: var(--Text-first);
-      font-size: var(--h-font-size-small-small);
-      border-bottom: 1px solid var(--Bg-color);
-      padding: 5px 0;
-      text-indent: 10px;
-      font-weight: var(--font-weight-regular);
+    &__sticky {
+      position: sticky;
+      top: 10px;
     }
 
-    &__container {
-      padding: 0.625rem;
+    &__communities {
+      background-color: var(--Bg-elements);
+      border-radius: 10px;
+      margin-bottom: 0.625rem;
+
+      &__title {
+        color: var(--Text-first);
+        font-size: var(--h-font-size-small-small);
+        border-bottom: 1px solid var(--Bg-color);
+        padding: 5px 0;
+        text-indent: 10px;
+        font-weight: var(--font-weight-regular);
+      }
+
+      &__container {
+        padding: 0.625rem;
+      }
     }
   }
 }

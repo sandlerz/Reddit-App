@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import SubReddits from '../../../Components/SubReddits'
 import About from '../../../Containers/About'
-import NavCommunities from '../../../Containers/NavCommunities'
+import NavCommunities from '../../../Components/NavLinkCommunities'
 import { useDispatch, useSelector } from 'react-redux'
 import { getAllSubReddits, getCommunities, getSearch } from './HomeSlices'
 import {
@@ -48,14 +48,16 @@ export default function Home() {
     <div className="home">
       <main>{loadingSubReddits ? <SkeletonSubReddits /> : mapSubReddits}</main>
       <aside className="aside">
-        <div className="aside__communities">
-          <h2 className="aside__communities__title">Communities</h2>
-          <div className="aside__communities__container">
-            {loadingCommunities ? <SkeletonCommunities /> : mapCommunities}
+        <div className="aside__sticky">
+          <div className="aside__communities">
+            <h2 className="aside__communities__title">Communities</h2>
+            <div className="aside__communities__container">
+              {loadingCommunities ? <SkeletonCommunities /> : mapCommunities}
+            </div>
           </div>
-        </div>
-        <div className="aside__about">
-          <About />
+          <div className="aside__about">
+            <About />
+          </div>
         </div>
       </aside>
     </div>
