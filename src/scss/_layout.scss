@@ -16,12 +16,6 @@ header {
 
   .aside {
     position: relative;
-
-    &__sticky {
-      position: sticky;
-      top: 10px;
-    }
-
     &__communities {
       background-color: var(--Bg-elements);
       border-radius: 10px;

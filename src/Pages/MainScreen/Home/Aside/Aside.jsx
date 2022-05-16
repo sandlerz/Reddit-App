@@ -31,16 +31,14 @@ export default function Aside() {
 
   return (
     <aside className="aside">
-      <div className="aside__sticky">
-        <div className="aside__communities">
-          <h2 className="aside__communities__title">Communities</h2>
-          <div className="aside__communities__container">
-            {loadingCommunities ? <SkeletonCommunities /> : mapCommunities}
-          </div>
+      <div className="aside__communities">
+        <h2 className="aside__communities__title">Communities</h2>
+        <div className="aside__communities__container">
+          {loadingCommunities ? <SkeletonCommunities /> : mapCommunities}
         </div>
-        <div className="aside__about">
-          <About />
-        </div>
+      </div>
+      <div className="aside__about">
+        <About />
       </div>
     </aside>
   )
