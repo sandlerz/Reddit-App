@@ -5,6 +5,7 @@ export const getAllSubReddits = async (subreddits = 'best') => {
   try {
     const response = await fetch(`${API_URL}/${subreddits}.json`)
 
+    console.log(`${API_URL}/${subreddits}.json`)
     if (response.ok) {
       const { data } = await response.json()
       const refactoredData = data.children.map(({ data }) => ({
@@ -17,7 +18,6 @@ export const getAllSubReddits = async (subreddits = 'best') => {
         id: data.id,
         permalink: data.permalink,
       }))
-      console.log(refactoredData)
       return {
         subreddits: subreddits ? subreddits : 'best',
         refactoredData,
@@ -33,7 +33,6 @@ export const getAllSubReddits = async (subreddits = 'best') => {
 const getAllCommunities = async () => {
   try {
     const response = await fetch(`${API_URL}/subreddits.json`)
-
     if (response.ok) {
       const { data } = await response.json()
       const refactoredData = data.children.map(({ data }) => ({
@@ -81,8 +80,24 @@ const getSearch = async (term, type) => {
   }
 }
 
+const getSingleSubReddit = async url => {
+  try {
+    const response = await fetch(`${API_URL}${url}.json`)
+
+    if (response.ok) {
+      const data = await response.json()
+      return data
+    }
+
+    throw new Error('get single subreddit request failed!')
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 export default {
   getAllSubReddits,
   getAllCommunities,
   getSearch,
+  getSingleSubReddit,
 }

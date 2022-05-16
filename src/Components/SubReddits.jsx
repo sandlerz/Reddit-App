@@ -8,11 +8,24 @@ import { objImg } from '../Util/util'
 import { useNavigate } from 'react-router-dom'
 
 export default function SubReddits({ data }) {
-  const { author, comments, score, subRedditName, thumbnail, title } = data
+  const {
+    author,
+    comments,
+    score,
+    subRedditName,
+    thumbnail,
+    title,
+    permalink,
+  } = data
   const navigate = useNavigate()
 
   const handleNavigateToCommunity = () => {
     navigate(`/${subRedditName}`)
+  }
+
+  console.log(permalink)
+  const handleOpenSubReddit = () => {
+    navigate(`${permalink}`)
   }
 
   return (
@@ -32,10 +45,16 @@ export default function SubReddits({ data }) {
         <img
           src={thumbnail.startsWith('http') ? thumbnail : objImg[thumbnail]}
           alt=""
+          onClick={handleOpenSubReddit}
         />
       </div>
       <div className="subReddit__body-container">
-        <h1 className="subReddit__body-container__title">{title}</h1>
+        <h1
+          className="subReddit__body-container__title"
+          onClick={handleOpenSubReddit}
+        >
+          {title}
+        </h1>
         <div className="subReddit__body-container__author-container">
           <div className="subReddit__body-container__author-container__avatar">
             <img src={avatar} alt="" />

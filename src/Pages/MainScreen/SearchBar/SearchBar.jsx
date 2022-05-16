@@ -9,7 +9,7 @@ import { getSearch } from './SearchBarSlice'
 
 export default function TopHeader() {
   const [textInput, setTextInput] = useState('')
-  const { subreddits, term, community } = useParams()
+  const { term } = useParams()
   const allSubReddits = useSelector(selectAllSubReddits)
   const navigate = useNavigate()
   const dispatch = useDispatch()
@@ -32,11 +32,11 @@ export default function TopHeader() {
   }
 
   useEffect(() => {
-    if (allSubReddits[term] === undefined) {
+    if (allSubReddits[term] === undefined && term) {
       dispatch(getSearch({ term: term, type: 'link' }))
       dispatch(getSearch({ term: term, type: 'sr' }))
     }
-  }, [subreddits, term, community])
+  })
 
   return (
     <div className="headerTop">
