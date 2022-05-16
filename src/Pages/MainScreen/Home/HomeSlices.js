@@ -11,14 +11,6 @@ export const getAllSubReddits = createAsyncThunk(
   }
 )
 
-export const getCommunities = createAsyncThunk(
-  'communities/getCommunities',
-  async () => {
-    const data = await Fetch.getAllCommunities()
-    return data
-  }
-)
-
 export const getSearch = createAsyncThunk(
   'allSubreddits/getSearch',
   async ({ term, type }) => {
@@ -72,54 +64,7 @@ const allSubReddits = createSlice({
   },
 })
 
-const communities = createSlice({
-  name: 'communities',
-  initialState: {
-    data: {
-      home: [],
-    },
-    isLoading: false,
-    hasError: false,
-  },
-  reducers: {},
-  extraReducers: builder => {
-    builder
-      .addCase(getCommunities.pending, state => {
-        state.isLoading = true
-      })
-      .addCase(getCommunities.fulfilled, (state, action) => {
-        state.data.home = action.payload
-        state.isLoading = false
-        state.hasError = false
-      })
-      .addCase(getCommunities.rejected, state => {
-        state.hasError = true
-      })
-      // Search Chuck!
-      .addCase(getSearch.pending, state => {
-        state.isLoading = true
-      })
-      .addCase(getSearch.fulfilled, (state, action) => {
-        const { payload } = action
-        if (payload[0]?.type === 't5') {
-          state.data[payload[0].term] = action.payload
-          state.isLoading = false
-          state.hasError = false
-        }
-      })
-      .addCase(getSearch.rejected, state => {
-        state.hasError = true
-      })
-  },
-})
-
 export const selectAllSubReddits = state => state.allSubReddits.data
 export const isLoadingSubReddits = state => state.allSubReddits.isLoading
 
-export const selectCommunities = state => state.communities.data
-export const isLoadingCommunities = state => state.communities.isLoading
-
-export default {
-  allSubReddits: allSubReddits.reducer,
-  communities: communities.reducer,
-}
+export default allSubReddits.reducer

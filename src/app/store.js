@@ -1,10 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
-import homeSliceReducer from '../Pages/MainScreen/Home/HomeSlices'
+import allSubReddits from '../Pages/MainScreen/Home/HomeSlices'
+import communities from '../Pages/MainScreen/Home/Aside/AsideSlice'
 
 const store = configureStore({
   reducer: {
-    allSubReddits: homeSliceReducer.allSubReddits,
-    communities: homeSliceReducer.communities,
+    allSubReddits: allSubReddits,
+    communities: communities,
   },
 })
 
