@@ -2,19 +2,12 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import { createSlice } from '@reduxjs/toolkit'
 import Fetch from '../../../Util/Fetch'
+import { getSearch } from '../SearchBar/SearchBarSlice'
 
 export const getAllSubReddits = createAsyncThunk(
   'allSubReddits/getAllSubReddits',
   async ({ subreddits }) => {
     const data = await Fetch.getAllSubReddits(subreddits)
-    return data
-  }
-)
-
-export const getSearch = createAsyncThunk(
-  'allSubreddits/getSearch',
-  async ({ term, type }) => {
-    const data = await Fetch.getSearch(term, type)
     return data
   }
 )

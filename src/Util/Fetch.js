@@ -15,8 +15,9 @@ export const getAllSubReddits = async (subreddits = 'best') => {
         comments: data.num_comments,
         thumbnail: data.thumbnail,
         id: data.id,
+        permalink: data.permalink,
       }))
-      console.log(subreddits)
+      console.log(refactoredData)
       return {
         subreddits: subreddits ? subreddits : 'best',
         refactoredData,

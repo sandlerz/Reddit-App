@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import { createSlice } from '@reduxjs/toolkit'
-import Fetch from '../../../../Util/Fetch'
-import { getSearch } from '../HomeSlices'
+import Fetch from '../../../Util/Fetch'
+import { getSearch } from '../SearchBar/SearchBarSlice'
 
 export const getCommunities = createAsyncThunk(
   'communities/getCommunities',

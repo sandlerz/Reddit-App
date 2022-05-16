@@ -1,13 +1,13 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import About from '../../../../Containers/About'
-import SkeletonCommunities from '../../../../Components/Skeleton/SkeletonCommunities'
-import { isLoadingCommunities, selectCommunities } from '../Aside/AsideSlice'
+import About from '../../../Containers/About'
+import SkeletonCommunities from '../../../Components/Skeleton/SkeletonCommunities'
+import { isLoadingCommunities, selectCommunities } from './AsideSlice'
 import { useSelector, useDispatch } from 'react-redux'
-import NavCommunities from '../../../../Components/NavLinkCommunities'
+import NavCommunities from '../../../Components/NavLinkCommunities'
 import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { getCommunities } from './AsideSlice'
-import { getSearch } from '../HomeSlices'
+import { getSearch } from '../SearchBar/SearchBarSlice'
 
 export default function Aside() {
   const [moreCommunities, setMoreCommunities] = useState(false)

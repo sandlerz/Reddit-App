@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom'
 import Navbar from '../../Containers/Navbar'
-import SearchBar from '../../Containers/SearchBar'
+import SearchBar from './SearchBar/SearchBar'
 export default function MainScreen() {
   return (
     <div>

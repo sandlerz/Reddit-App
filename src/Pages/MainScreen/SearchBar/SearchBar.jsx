@@ -1,12 +1,18 @@
-import RedditLogo from '../assets/images/reddit-avatar.png'
-import SearchIcon from '../assets/images/search-icon.svg'
-import Moon from '../assets/images/moon.svg'
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import RedditLogo from '../../../assets/images/reddit-avatar.png'
+import SearchIcon from '../../../assets/images/search-icon.svg'
+import Moon from '../../../assets/images/moon.svg'
+import { useEffect, useState } from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { selectAllSubReddits } from '../AllSubReddits/AllSubRedditsSlice'
+import { getSearch } from './SearchBarSlice'
 
 export default function TopHeader() {
   const [textInput, setTextInput] = useState('')
+  const { subreddits, term, community } = useParams()
+  const allSubReddits = useSelector(selectAllSubReddits)
   const navigate = useNavigate()
+  const dispatch = useDispatch()
 
   const handleEnter = event => {
     const { key } = event
@@ -24,6 +30,13 @@ export default function TopHeader() {
   const handleLogoNavigate = () => {
     navigate('/')
   }
+
+  useEffect(() => {
+    if (allSubReddits[term] === undefined) {
+      dispatch(getSearch({ term: term, type: 'link' }))
+      dispatch(getSearch({ term: term, type: 'sr' }))
+    }
+  }, [subreddits, term, community])
 
   return (
     <div className="headerTop">
