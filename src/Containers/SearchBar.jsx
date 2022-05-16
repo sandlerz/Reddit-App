@@ -21,9 +21,13 @@ export default function TopHeader() {
     setTextInput('')
   }
 
+  const handleLogoNavigate = () => {
+    navigate('/')
+  }
+
   return (
     <div className="headerTop">
-      <button className="headerTop__redditLogo">
+      <button className="headerTop__redditLogo" onClick={handleLogoNavigate}>
         <img src={RedditLogo} alt="logo" />
       </button>
       <button className="search">
