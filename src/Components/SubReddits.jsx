@@ -5,9 +5,15 @@ import shareIcon from '../assets/images/share-icon.svg'
 import expandIcon from '../assets/images/expand-icon.svg'
 import avatar from '../assets/images/reddit-avatar.png'
 import { objImg } from '../Util/util'
+import { useNavigate } from 'react-router-dom'
 
 export default function SubReddits({ data }) {
   const { author, comments, score, subRedditName, thumbnail, title } = data
+  const navigate = useNavigate()
+
+  const handleNavigateToCommunity = () => {
+    navigate(`/${subRedditName}`)
+  }
 
   return (
     <div className="subReddit">
@@ -34,7 +40,10 @@ export default function SubReddits({ data }) {
           <div className="subReddit__body-container__author-container__avatar">
             <img src={avatar} alt="" />
           </div>
-          <span className="subReddit__body-container__author-container__reddit">
+          <span
+            className="subReddit__body-container__author-container__reddit"
+            onClick={handleNavigateToCommunity}
+          >
             {subRedditName}
           </span>
           <span className="subReddit__body-container__author-container__author">
