@@ -31,10 +31,12 @@ const allSubReddits = createSlice({
         state.isLoading = true
       })
       .addCase(getAllSubReddits.fulfilled, (state, action) => {
+        // if (action.payload !== undefined) {
         const { subreddits, refactoredData } = action.payload
         state.data[subreddits] = refactoredData
         state.isLoading = false
         state.hasError = false
+        // }
       })
       .addCase(getAllSubReddits.rejected, state => {
         state.hasError = true
@@ -62,6 +64,6 @@ const allSubReddits = createSlice({
 })
 
 export const selectAllSubReddits = state => state.allSubReddits.data
-export const isLoadingSubReddits = state => state.allSubReddits.isLoading
+export const isLoadingAllSubReddits = state => state.allSubReddits.isLoading
 
 export default allSubReddits.reducer
