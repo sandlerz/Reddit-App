@@ -4,8 +4,6 @@ const API_URL = 'https://www.reddit.com'
 export const getAllSubReddits = async (subreddits = 'best') => {
   try {
     const response = await fetch(`${API_URL}/${subreddits}.json`)
-
-    console.log(`${API_URL}/${subreddits}.json`)
     if (response.ok) {
       const { data } = await response.json()
       const refactoredData = data.children.map(({ data }) => ({
@@ -70,6 +68,7 @@ const getSearch = async (term, type) => {
         id: data.id,
         type: kind,
         term: term,
+        permalink: data.permalink,
       }))
       return refactoredData
     }
@@ -86,7 +85,12 @@ const getSingleSubReddit = async url => {
 
     if (response.ok) {
       const data = await response.json()
-      return data
+      const refactoredData = {
+        subReddit: data[0].data.children[0].data,
+        comments: data[1].data.children,
+        id: data[0].data.children[0].data.id,
+      }
+      return refactoredData
     }
 
     throw new Error('get single subreddit request failed!')

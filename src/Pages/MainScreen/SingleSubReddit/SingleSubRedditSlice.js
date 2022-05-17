@@ -13,7 +13,7 @@ const singleSubReddit = createSlice({
   name: 'singleSubreddit',
   initialState: {
     data: {},
-    isLoading: false,
+    isLoading: true,
     hasError: false,
   },
   reducers: {},
@@ -23,6 +23,8 @@ const singleSubReddit = createSlice({
         state.isLoading = true
       })
       .addCase(getSingleSubReddit.fulfilled, (state, action) => {
+        const { id, subReddit, comments } = action.payload
+        state.data[id] = { subReddit, comments }
         state.isLoading = false
         state.hasError = false
       })
@@ -31,5 +33,8 @@ const singleSubReddit = createSlice({
       })
   },
 })
+
+export const selectSingleSubReddit = state => state.singleSubReddit.data
+export const isLoadingSingleSubReddit = state => state.singleSubReddit.isLoading
 
 export default singleSubReddit.reducer

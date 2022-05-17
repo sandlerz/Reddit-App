@@ -23,7 +23,6 @@ export default function SubReddits({ data }) {
     navigate(`/${subRedditName}`)
   }
 
-  console.log(permalink)
   const handleOpenSubReddit = () => {
     navigate(`${permalink}`)
   }
