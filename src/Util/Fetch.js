@@ -15,6 +15,7 @@ export const getAllSubReddits = async (subreddits = 'best') => {
         thumbnail: data.thumbnail,
         id: data.id,
         permalink: data.permalink,
+        created_utc: data.created_utc,
       }))
       return {
         subreddits: subreddits ? subreddits : 'best',
@@ -69,6 +70,7 @@ const getSearch = async (term, type) => {
         type: kind,
         term: term,
         permalink: data.permalink,
+        created_utc: data.created_utc,
       }))
       return refactoredData
     }

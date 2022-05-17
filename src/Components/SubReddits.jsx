@@ -6,6 +6,7 @@ import expandIcon from '../assets/images/expand-icon.svg'
 import avatar from '../assets/images/reddit-avatar.png'
 import { objImg } from '../Util/util'
 import { useNavigate } from 'react-router-dom'
+import { timeDifference } from '../Util/util'
 
 export default function SubReddits({ data }) {
   const {
@@ -16,7 +17,10 @@ export default function SubReddits({ data }) {
     thumbnail,
     title,
     permalink,
+    created_utc,
   } = data
+  const createdDate = new Date(created_utc * 1000)
+  const currentDate = new Date()
   const navigate = useNavigate()
 
   const handleNavigateToCommunity = () => {
@@ -66,6 +70,9 @@ export default function SubReddits({ data }) {
           </span>
           <span className="subReddit__body-container__author-container__author">
             Posted by u/{author}
+          </span>
+          <span className="subReddit__body-container__author-container__time">
+            • {timeDifference(currentDate, createdDate)}
           </span>
         </div>
         <div className="subReddit__body-container__dashboard">

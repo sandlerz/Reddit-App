@@ -85,6 +85,10 @@
           text-decoration: underline;
         }
       }
+
+      &__time {
+        color: var(--Text-second);
+      }
     }
 
     &__dashboard {
