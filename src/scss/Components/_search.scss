@@ -7,11 +7,16 @@
   align-items: center;
   justify-content: center;
   gap: 0.9375rem;
+  box-shadow: inset 0px 5px 10px 0px rgba(0, 0, 0, 1);
 
   &__icon {
     width: 1.5625rem;
     height: 1.5625rem;
+
     filter: var(--filter-color-icon);
+    &:hover {
+      filter: var(--Reddit-color-filter);
+    }
   }
 
   &__input {

@@ -2,12 +2,13 @@
   display: flex;
   justify-content: center;
   width: 100%;
-  border-bottom: dashed 0.125rem var(--Nav-border-icon);
+  border-bottom: dashed 2px var(--Nav-border-icon);
+  box-shadow: 0 15px 25px -10px rgba(0, 0, 0, 0.25);
 
   .navLinks__item {
     &__icon {
-      width: 2.1875rem;
-      height: 2.1875rem;
+      width: 1.75rem;
+      height: 1.75rem;
       display: grid;
       place-content: center;
     }
@@ -18,22 +19,31 @@
 .isActive {
   color: var(--Text-second);
   text-decoration: none;
-  font-size: var(--h-font-size-medium);
+  font-size: var(--h-font-size-small);
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  width: 8rem;
-  height: 3.5rem;
+  width: 10rem;
+  height: 3.3125rem;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 .isActive {
   color: var(--Text-third);
-  border: 0.125rem solid var(--Nav-border-icon);
-  border-bottom: 0.125rem solid var(--Bg-color);
-  border-radius: 0.3125rem 0.3125rem 0 0;
+  border: 2px solid var(--Nav-border-icon);
+  border-bottom: 2px solid var(--Bg-color);
+  border-radius: 5px 5px 0 0;
   position: relative;
-  top: 0.125rem;
+  top: 2px;
+  text-decoration: underline;
+  box-shadow: inset 0rem 10px 10px 2px rgba(0, 0, 0, 0.25),
+    0px 25px 20px -5px rgba(63, 68, 70, 1);
+  transition: box-shadow 0.2s;
+  z-index: 0;
 }
 
 .iconActive {
@@ -41,14 +51,14 @@
   filter: var(--Reddit-color-filter);
   transition: all 1s;
   transform: scale(1.1);
-  animation: NavLink 0.5s infinite alternate ease-in-out;
+  animation: NavLink 0.5s infinite alternate linear;
 
   @keyframes NavLink {
     from {
       top: 0;
     }
     to {
-      top: 0.3125rem;
+      top: 3px;
     }
   }
 }

@@ -23,8 +23,10 @@ export default function TopHeader() {
   }
 
   const handleClick = () => {
-    navigate(`/search/${textInput}`)
-    setTextInput('')
+    if (textInput !== '') {
+      navigate(`/search/${textInput}`)
+      setTextInput('')
+    }
   }
 
   const handleLogoNavigate = () => {

@@ -21,11 +21,12 @@ header {
       border-radius: 10px;
       margin-bottom: 0.625rem;
       overflow: hidden;
+      box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.2);
 
       &__title,
       &__more-communities {
         color: var(--Text-first);
-        padding: 5px 0;
+        padding: 0.3125rem 0;
         font-weight: var(--font-weight-regular);
       }
 
