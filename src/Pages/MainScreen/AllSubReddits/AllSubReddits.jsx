@@ -13,7 +13,7 @@ import { getAllSubReddits } from './AllSubRedditsSlice'
 export default function AllSubReddits() {
   const { subreddits, term, community } = useParams()
   const allSubReddits = useSelector(selectAllSubReddits)
-  const isLoading = useSelector(isLoadingAllSubReddits)
+  // const isLoading = useSelector(isLoadingAllSubReddits)
   const dispatch = useDispatch()
 
   let mapSubReddits = allSubReddits[term || subreddits || 'best']?.map(
@@ -35,8 +35,8 @@ export default function AllSubReddits() {
     }
   }, [subreddits, term, community])
 
-  if (!isLoading && mapSubReddits?.length === 0)
-    return <main>There are no posts in this subreddit</main>
+  // if (!isLoading && mapSubReddits?.length === 0)
+  // return <main>There are no posts in this subreddit</main>
 
   return (
     <main>

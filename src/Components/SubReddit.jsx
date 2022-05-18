@@ -2,22 +2,27 @@ import topArrow from '../assets/images/top-arrow.svg'
 import botArrow from '../assets/images/bot-arrow.svg'
 import avatar from '../assets/images/reddit-avatar.png'
 import Parce from 'html-react-parser'
-import { timeDifference, getTextToHTML } from '../Util/util'
+import { timeDifference, getTextToHTML, objImg } from '../Util/util'
 
-export default function SingleSubReddit({ data }) {
+export default function SubReddit({ data }) {
   const createdDate = new Date(data.created_utc * 1000)
   const currentDate = new Date()
 
   let img
   const regExImg = /\.jpg$/
-  if (regExImg.test(data.url)) {
+  if (
+    data.thumbnail === 'self' ||
+    data.thumbnail === 'default' ||
+    data.thumbnail === 'nsfw'
+  ) {
+    img = objImg[data.thumbnail]
+  } else if (regExImg.test(data.url)) {
     img = data.url
   } else if (data.thumbnail) {
     img = data.thumbnail
   } else {
     img = null
   }
-  console.log(img)
 
   return (
     <section className="single-subreddit">

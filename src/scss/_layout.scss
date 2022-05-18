@@ -1,27 +1,27 @@
 header {
-  margin-bottom: 20px;
+  margin-bottom: 1.25rem;
 }
 
 .grid {
   display: grid;
   grid-template-columns: 56.25rem 20.625rem;
   justify-content: center;
-  gap: 16px;
+  gap: 1rem;
 
   main {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 0.625rem;
   }
 
   .aside {
     position: relative;
     &__communities {
       background-color: var(--Bg-elements);
-      border-radius: 10px;
+      border-radius: 0.625rem;
       margin-bottom: 0.625rem;
       overflow: hidden;
-      box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.2);
+      box-shadow: 0.1875rem 0.1875rem 0.625rem 0rem rgba(0, 0, 0, 0.2);
 
       &__title,
       &__more-communities {

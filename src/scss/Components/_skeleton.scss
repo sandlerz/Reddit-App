@@ -11,6 +11,12 @@
   width: 8.125rem;
   height: 5.9375rem;
   border-radius: 0.5rem;
+
+  &__big {
+    width: 12.5rem;
+    height: 9.375rem;
+    border-radius: 0.5rem;
+  }
 }
 
 .title {
@@ -19,10 +25,18 @@
   margin-bottom: 0.625rem;
 }
 
-.avatar-small {
-  min-width: 0.9375rem;
-  height: 0.9375rem;
-  border-radius: 50%;
+.avatar {
+  &__small {
+    border-radius: 50%;
+    min-width: 0.9375rem;
+    height: 0.9375rem;
+  }
+
+  &__medium {
+    min-width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+  }
 }
 
 .text {
@@ -33,12 +47,6 @@
 .dashboard {
   width: 30%;
   height: 0.75rem;
-}
-
-.avatar-medium {
-  min-width: 2.5rem;
-  height: 2.5rem;
-  border-radius: 50%;
 }
 
 .number {
@@ -79,6 +87,12 @@
 }
 
 .communities {
+  // animation's skeleton purposes
+  position: relative;
+  overflow: hidden;
+}
+
+.single-subreddit {
   // animation's skeleton purposes
   position: relative;
   overflow: hidden;

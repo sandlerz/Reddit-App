@@ -12,7 +12,7 @@ export default function SkeletonSubReddits() {
       <div className="subReddit__body-container">
         <SkeletonElement type="title" />
         <div className="subReddit__body-container__author-container">
-          <SkeletonElement type="avatar-small" />
+          <SkeletonElement type="avatar__small" />
           <SkeletonElement type="text" />
         </div>
         <SkeletonElement type="dashboard" />

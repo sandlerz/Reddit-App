@@ -1,6 +1,9 @@
 .single-subreddit {
   width: 100%;
   margin-top: 1.25rem;
+  position: relative;
+  overflow: hidden;
+
   &__top {
     display: flex;
     align-items: center;
@@ -42,6 +45,7 @@
     }
 
     &__body-container {
+      width: 100%;
       height: 100%;
       display: flex;
       flex-direction: column;
@@ -93,6 +97,7 @@
   }
 
   &__bottom {
+    width: 100%;
     padding: 1.25rem 0;
     color: var(--Text-third);
     border-bottom: 0.125rem solid var(--Bg-elements);

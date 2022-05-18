@@ -5,10 +5,12 @@ import {
 } from './SingleSubRedditSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
-import SingleSubReddit from '../../../Components/SingleSubReddit'
+import SubReddit from '../../../Components/SubReddit'
 import { selectSingleSubReddit } from './SingleSubRedditSlice'
+import SkeletonSingleSubReddit from '../../../Components/Skeleton/SkeletonSingleSubReddit'
+import CommentsContainer from '../../../Containers/CommentsContainer'
 
-export default function Comments() {
+export default function SingleSubReddit() {
   const { id } = useParams()
   const { pathname } = useLocation()
   const isLoading = useSelector(isLoadingSingleSubReddit)
@@ -24,10 +26,17 @@ export default function Comments() {
   return (
     <main>
       {!isLoading && data[id] ? (
-        <SingleSubReddit data={data[id].subReddit} />
+        <SubReddit data={data[id].subReddit} />
       ) : (
-        'Is Loading... wait!'
+        <SkeletonSingleSubReddit />
       )}
+      <div>
+        {!isLoading && data[id] ? (
+          <CommentsContainer data={data[id]?.comments} />
+        ) : (
+          'Loading comments... Wait'
+        )}
+      </div>
     </main>
   )
 }
