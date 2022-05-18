@@ -50,10 +50,16 @@
         color: var(--Text-second);
         display: flex;
         align-items: center;
+        gap: 0.5rem;
 
         &__img {
           max-width: 0.625rem;
           filter: var(--filter-color-icon-2);
+        }
+
+        &__number {
+          color: var(--Text-third);
+          margin-right: 0.3125rem;
         }
       }
 

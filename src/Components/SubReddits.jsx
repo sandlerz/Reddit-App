@@ -78,7 +78,10 @@ export default function SubReddits({ data }) {
           >
             <img src={expandIcon} alt="" />
           </div>
-          <div className="subReddit__body-container__dashboard__comments dashboard-border">
+          <div
+            className="subReddit__body-container__dashboard__comments dashboard-border"
+            onClick={handleOpenSubReddit}
+          >
             <div className="subReddit__body-container__dashboard__icons">
               <img src={commentIcon} alt="" />
             </div>

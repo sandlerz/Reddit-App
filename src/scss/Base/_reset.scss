@@ -55,3 +55,11 @@ input {
 input[type='text']:focus {
   outline: var(--Reddit-color) 0.125rem solid;
 }
+
+a {
+  color: black;
+
+  &:hover {
+    color: var(--Reddit-color);
+  }
+}

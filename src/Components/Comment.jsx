@@ -32,7 +32,13 @@ export default function Comment({
             <div className="comment__body__dashboard__score__img">
               <img src={topArrow} alt="" />
             </div>
-            <span>{score.toLocaleString()} VotesUp</span>
+            <span>
+              {' '}
+              <span className="comment__body__dashboard__score__number">
+                {score.toLocaleString()}
+              </span>{' '}
+              VotesUp
+            </span>
           </div>
           {children && kind !== 'more' && (
             <div className="comment__body__dashboard__replies-btn dashboard-border">
