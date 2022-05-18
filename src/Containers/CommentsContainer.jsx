@@ -1,60 +1,69 @@
 import Parce from 'html-react-parser'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { getTextToHTML } from '../Util/util'
 
 export default function CommentsContainer({ data }) {
-  const [repliesComments, setRepliesComments] = useState({})
+  const [repliesComments, setRepliesComments] = useState(false)
   const mapComments = []
+  const stateObj = {}
 
-  const mapFunction = (array, id) => {
-    const returnArray = array?.map(comment => {
-      if (comment.kind === 'more') return null
-      return (
-        <div key={comment.data.id} style={{ margin: '10px 0 0 20px' }}>
-          {getTextToHTML(comment.data.body)}
-          {comment?.data?.replies?.data?.children &&
-            comment?.data?.replies?.data?.children.kind !== 'more' && (
-              <button
-                onClick={e => {
-                  mapFunction(
-                    comment?.data?.replies?.data?.children,
-                    comment.data.id
-                  )
-                }}
-              >
-                MORE COMMENTS
-              </button>
-            )}
-          <div>{repliesComments[comment.data.id]}</div>
-        </div>
-      )
-    })
+  const handleClick = id => {
     setRepliesComments(prev => ({
       ...prev,
-      [id]: returnArray,
+      [id]: !prev[id],
     }))
   }
 
-  for (let i = 0; i < data.length / 3; i++) {
+  const mapFunction = array => {
+    if (typeof array === 'undefined') return null
+    return array.map(comment => {
+      if (comment.kind === 'more') return null
+      stateObj[comment.data.id] = false
+      return (
+        <div
+          key={comment.data.id}
+          style={{ margin: '20px 0 0 20px', color: 'white' }}
+        >
+          {Parce(getTextToHTML(comment.data.body_html))}
+          {comment.data.replies.data?.children &&
+            comment.data.replies.data?.children[0].kind !== 'more' && (
+              <button onClick={() => handleClick(comment.data.id)}>
+                MORE COMMENTS
+              </button>
+            )}
+
+          {repliesComments[comment.data.id] && (
+            <div>{mapFunction(comment.data.replies.data?.children)}</div>
+          )}
+        </div>
+      )
+    })
+  }
+
+  for (let i = 0; i < data.length - 1; i++) {
+    stateObj[data[i].data?.id] = true
     mapComments.push(
       <div
-        key={data[i].data.id}
+        key={data[i].data?.id}
         style={{ marginBottom: '20px', color: 'white' }}
       >
-        {getTextToHTML(data[i].data.body)}
-        {data[i]?.data?.replies?.data?.children && (
-          <button
-            onClick={() =>
-              mapFunction(data[i].data.replies?.data.children, data[i].data.id)
-            }
-          >
-            MORE COMMENTS
-          </button>
+        {Parce(getTextToHTML(data[i].data?.body_html))}
+        {data[i].data.replies.data?.children &&
+          data[i].data.replies.data?.children !== 'more' && (
+            <button onClick={() => handleClick(data[i].data?.id)}>
+              MORE COMMENTS
+            </button>
+          )}
+        {repliesComments[data[i].data?.id] && (
+          <div>{mapFunction(data[i].data.replies.data?.children)}</div>
         )}
-        <div>{repliesComments[data[i].data.id]}</div>
       </div>
     )
   }
+
+  useEffect(() => {
+    setRepliesComments(stateObj)
+  }, [])
 
   return (
     <div>
