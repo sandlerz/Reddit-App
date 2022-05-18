@@ -5,9 +5,6 @@ import Parce from 'html-react-parser'
 import { timeDifference, getTextToHTML, objImg } from '../Util/util'
 
 export default function SubReddit({ data }) {
-  const createdDate = new Date(data.created_utc * 1000)
-  const currentDate = new Date()
-
   let img
   const regExImg = /\.jpg$/
   if (
@@ -59,7 +56,7 @@ export default function SubReddit({ data }) {
               Posted by u/{data.author}
             </span>
             <span className="single-subreddit__top__body-container__author-container__time">
-              • {timeDifference(currentDate, createdDate)}
+              • {timeDifference(data.created_utc)}
             </span>
           </div>
         </div>

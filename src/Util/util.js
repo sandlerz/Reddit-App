@@ -5,14 +5,17 @@ export const objImg = {
   nsfw: 'https://www.reddit.com/static/nsfw2.png',
 }
 
-export const timeDifference = (current, previous) => {
+export const timeDifference = created_utc => {
+  const createdDate = new Date(created_utc * 1000)
+  const currentDate = new Date()
+
   const msPerMinute = 60 * 1000
   const msPerHour = msPerMinute * 60
   const msPerDay = msPerHour * 24
   const msPerMonth = msPerDay * 30
   const msPerYear = msPerDay * 365
 
-  const elapsed = current - previous
+  const elapsed = currentDate - createdDate
 
   if (elapsed < msPerMinute) {
     return Math.round(elapsed / 1000) + ' seconds ago'

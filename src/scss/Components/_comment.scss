@@ -1,0 +1,77 @@
+.comments__container {
+  &__title {
+    color: var(--Text-first);
+    margin-bottom: 0.625rem;
+    text-decoration: underline;
+  }
+
+  &__comments {
+    margin-bottom: 1.25rem;
+  }
+}
+
+.comment {
+  width: 100%;
+  color: var(--Text-first);
+  margin-top: 0.625rem;
+  &__user {
+    display: flex;
+    align-items: center;
+    gap: 0.3125rem;
+    margin-bottom: 0.625rem;
+    &__avatar {
+      max-width: 1.875rem;
+      margin-right: 0.3125rem;
+    }
+
+    &__author {
+      color: var(--Text-third);
+      font-weight: 700;
+      text-decoration: underline;
+    }
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3125rem;
+    margin-left: 0.9375rem;
+    padding-left: 1.4375rem;
+    border-left: 0.0625rem solid var(--Reddit-color);
+
+    &__dashboard {
+      display: flex;
+      gap: 0.625rem;
+      align-items: center;
+      height: 100%;
+      font-size: var(--p-font-size-small);
+
+      &__score {
+        color: var(--Text-second);
+        display: flex;
+        align-items: center;
+
+        &__img {
+          max-width: 0.625rem;
+          filter: var(--filter-color-icon-2);
+        }
+      }
+
+      &__replies-btn {
+        &__btn {
+          color: var(--Text-second);
+          font-weight: 700;
+          cursor: pointer;
+
+          &:hover {
+            color: var(--Text-first);
+          }
+        }
+      }
+    }
+
+    &__replies-container {
+      margin-top: 0.625rem;
+    }
+  }
+}

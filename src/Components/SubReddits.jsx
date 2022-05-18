@@ -19,8 +19,6 @@ export default function SubReddits({ data }) {
     permalink,
     created_utc,
   } = data
-  const createdDate = new Date(created_utc * 1000)
-  const currentDate = new Date()
   const navigate = useNavigate()
 
   const handleNavigateToCommunity = () => {
@@ -71,9 +69,7 @@ export default function SubReddits({ data }) {
           <span className="subReddit__body-container__author-container__author">
             Posted by u/{author}
           </span>
-          <span className="subReddit__body-container__author-container__time">
-            • {timeDifference(currentDate, createdDate)}
-          </span>
+          <span className="time">• {timeDifference(created_utc)}</span>
         </div>
         <div className="subReddit__body-container__dashboard">
           <div
