@@ -32,6 +32,12 @@
     height: 0.9375rem;
   }
 
+  &__small-medium {
+    min-width: 30px;
+    height: 30px;
+    border-radius: 50%;
+  }
+
   &__medium {
     min-width: 2.5rem;
     height: 2.5rem;
@@ -94,6 +100,10 @@
 
 .single-subreddit {
   // animation's skeleton purposes
+  position: relative;
+  overflow: hidden;
+}
+.comments__container {
   position: relative;
   overflow: hidden;
 }

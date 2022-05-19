@@ -36,9 +36,8 @@ export default function CommentsContainer({ data }) {
     })
   }
 
-  for (let i = 0; i < data.length - 1; i++) {
+  for (let i = 0; i < data.length - 1; i += 1) {
     stateObj[data[i].data?.id] = true
-    console.log(data[i].data)
     mapComments.push(
       <Comment
         key={data[i].data?.id}

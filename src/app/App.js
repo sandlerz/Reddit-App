@@ -16,6 +16,10 @@ export default function App() {
           element={<SubReddit />}
         />
       </Route>
+      <Route
+        path="*"
+        element={<main>there is nothing here ERROROROROROR!!</main>}
+      />
     </Routes>
   )
 }

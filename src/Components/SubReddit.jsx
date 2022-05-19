@@ -3,8 +3,10 @@ import botArrow from '../assets/images/bot-arrow.svg'
 import avatar from '../assets/images/reddit-avatar.png'
 import Parce from 'html-react-parser'
 import { timeDifference, getTextToHTML, objImg } from '../Util/util'
+import { useNavigate } from 'react-router-dom'
 
 export default function SubReddit({ data }) {
+  const navigate = useNavigate()
   let img
   const regExImg = /\.jpg$/
   if (
@@ -19,6 +21,10 @@ export default function SubReddit({ data }) {
     img = data.thumbnail
   } else {
     img = null
+  }
+
+  const handleNavigateToCommunity = () => {
+    navigate(`/${data.subreddit_name_prefixed}`)
   }
 
   return (
@@ -49,7 +55,10 @@ export default function SubReddit({ data }) {
             <div className="single-subreddit__top__body-container__author-container__avatar">
               <img src={avatar} alt="" />
             </div>
-            <span className="single-subreddit__top__body-container__author-container__reddit">
+            <span
+              className="single-subreddit__top__body-container__author-container__reddit"
+              onClick={handleNavigateToCommunity}
+            >
               {data.subreddit_name_prefixed}
             </span>
             <span className="single-subreddit__top__body-container__author-container__author">

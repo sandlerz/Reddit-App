@@ -9,6 +9,7 @@ import SubReddit from '../../../Components/SubReddit'
 import { selectSingleSubReddit } from './SingleSubRedditSlice'
 import SkeletonSingleSubReddit from '../../../Components/Skeleton/SkeletonSingleSubReddit'
 import CommentsContainer from '../../../Containers/CommentsContainer'
+import SkeletonComments from '../../../Components/Skeleton/SkeletonComments'
 
 export default function SingleSubReddit() {
   const { id } = useParams()
@@ -34,7 +35,7 @@ export default function SingleSubReddit() {
         {!isLoading && data[id] ? (
           <CommentsContainer data={data[id]?.comments} />
         ) : (
-          'Loading comments... Wait'
+          <SkeletonComments />
         )}
       </div>
     </main>

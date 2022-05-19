@@ -33,10 +33,9 @@ export default function Comment({
               <img src={topArrow} alt="" />
             </div>
             <span>
-              {' '}
               <span className="comment__body__dashboard__score__number">
                 {score.toLocaleString()}
-              </span>{' '}
+              </span>
               VotesUp
             </span>
           </div>
