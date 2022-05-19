@@ -17,7 +17,6 @@ export default function CommentsContainer({ data }) {
     if (typeof array === 'undefined') return null
     return array.map(({ data, kind }) => {
       if (kind === 'more') return null
-      stateObj[data.id] = false
       return (
         <Comment
           key={data.id}
@@ -36,23 +35,25 @@ export default function CommentsContainer({ data }) {
     })
   }
 
-  for (let i = 0; i < data.length - 1; i += 1) {
-    stateObj[data[i].data?.id] = true
-    mapComments.push(
-      <Comment
-        key={data[i].data?.id}
-        id={data[i].data?.id}
-        body_html={data[i].data?.body_html}
-        author={data[i].data?.author}
-        score={data[i].data?.score}
-        created_utc={data[i].data?.created_utc}
-        children={data[i].data.replies.data?.children}
-        kind={data[i].data.replies.data?.children}
-        handleClick={handleShowReplies}
-        repliesComments={repliesComments}
-        mapFunction={mapFunction}
-      />
-    )
+  for (let i = 0; i < data.length; i += 1) {
+    if (data[i].kind !== 'more') {
+      stateObj[data[i].data?.id] = true
+      mapComments.push(
+        <Comment
+          key={data[i].data?.id}
+          id={data[i].data?.id}
+          body_html={data[i].data?.body_html}
+          author={data[i].data?.author}
+          score={data[i].data?.score}
+          created_utc={data[i].data?.created_utc}
+          children={data[i].data.replies?.data?.children}
+          kind={data[i].data.replies?.data?.children[0].kind}
+          handleClick={handleShowReplies}
+          repliesComments={repliesComments}
+          mapFunction={mapFunction}
+        />
+      )
+    }
   }
 
   useEffect(() => {
