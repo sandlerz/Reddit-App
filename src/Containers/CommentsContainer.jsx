@@ -63,7 +63,15 @@ export default function CommentsContainer({ data }) {
   return (
     <div className="comments__container">
       <h1 className="comments__container__title">Comments</h1>
-      <div className="comments__container__comments">{mapComments}</div>
+      <div className="comments__container__comments">
+        {mapComments.length > 0 ? (
+          mapComments
+        ) : (
+          <p className="comments__container__comments__noComments">
+            There is no comments in this post!...
+          </p>
+        )}
+      </div>
     </div>
   )
 }

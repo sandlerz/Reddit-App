@@ -3,9 +3,9 @@ import Aside from './Aside/Aside'
 
 export default function Home() {
   return (
-    <div className="grid">
+    <main className="grid">
       <AllSubReddits />
       <Aside />
-    </div>
+    </main>
   )
 }

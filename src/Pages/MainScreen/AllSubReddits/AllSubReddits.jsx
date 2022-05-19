@@ -39,8 +39,8 @@ export default function AllSubReddits() {
   // return <main>There are no posts in this subreddit</main>
 
   return (
-    <main>
+    <section>
       {mapSubReddits?.length > 0 ? mapSubReddits : <SkeletonSubReddits />}
-    </main>
+    </section>
   )
 }

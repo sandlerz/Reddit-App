@@ -7,6 +7,10 @@
 
   &__comments {
     margin-bottom: 1.25rem;
+
+    &__noComments {
+      color: var(--Text-first);
+    }
   }
 }
 

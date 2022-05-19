@@ -18,6 +18,8 @@ export default function SingleSubReddit() {
   const data = useSelector(selectSingleSubReddit)
   const dispatch = useDispatch()
 
+  console.log(data[id])
+
   useEffect(() => {
     if (data[id] === undefined) {
       dispatch(getSingleSubReddit({ url: pathname }))

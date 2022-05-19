@@ -1,4 +1,5 @@
 import { Routes, Route } from 'react-router-dom'
+import ErrorPage from '../Pages/ErrorPage/ErrorPage'
 import Home from '../Pages/MainScreen/Home'
 import MainScreen from '../Pages/MainScreen/MainScreen'
 import SubReddit from '../Pages/MainScreen/SubReddit'
@@ -16,10 +17,7 @@ export default function App() {
           element={<SubReddit />}
         />
       </Route>
-      <Route
-        path="*"
-        element={<main>there is nothing here ERROROROROROR!!</main>}
-      />
+      <Route path="*" element={<ErrorPage />} />
     </Routes>
   )
 }
