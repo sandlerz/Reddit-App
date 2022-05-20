@@ -17,14 +17,16 @@ the purpose of this project it's for that users that is looking for a minimal pa
 
 ## Wireframes
 
-![Desktop-Home](./public/Design/Wireframes/Desktop-home.jpg)
+![Desktop-wireframes](./public/Design/Wireframes/Desktop-home.jpg)
 
 ## Screenshots
+
+![Desktop-screenshot](./public/Design/Screenshot.png)
 
 ## Technologies used
 
 - React
-- - React Router
+- React Router
 - Redux
 - Sass
 
@@ -37,6 +39,10 @@ the purpose of this project it's for that users that is looking for a minimal pa
 - Light mode enable
 
 ## Future work
+
+- users can vote
+- users can comment
+- watch videos post
 
 ## Setup
 

@@ -20,8 +20,6 @@ export default function SingleSubReddit() {
     }
   }, [pathname, id, data, dispatch])
 
-  console.log(data[id])
-
   return (
     <main>
       {data[id] ? (

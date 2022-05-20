@@ -1,4 +1,4 @@
-import { useParams, Navigate } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { selectAllSubReddits } from './AllSubRedditsSlice'
 import SubReddits from '../../../Components/SubReddits'
@@ -29,8 +29,6 @@ export default function AllSubReddits() {
       dispatch(getAllSubReddits({ subreddits: `r/${community}` }))
     }
   }, [subreddits, term, community, allSubReddits, dispatch])
-
-  if (mapSubReddits === undefined) return <Navigate to="error" />
 
   return (
     <section>
