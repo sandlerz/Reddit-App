@@ -29,16 +29,14 @@ export default function TopHeader() {
     }
   }
 
-  const handleLogoNavigate = () => {
-    navigate('/')
-  }
+  const handleLogoNavigate = () => navigate('/')
 
   useEffect(() => {
     if (allSubReddits[term] === undefined && term) {
       dispatch(getSearch({ term: term, type: 'link' }))
       dispatch(getSearch({ term: term, type: 'sr' }))
     }
-  })
+  }, [allSubReddits, dispatch, term])
 
   return (
     <div className="headerTop">

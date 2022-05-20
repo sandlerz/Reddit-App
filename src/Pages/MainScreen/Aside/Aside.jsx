@@ -1,7 +1,6 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import About from '../../../Containers/About'
 import SkeletonCommunities from '../../../Components/Skeleton/SkeletonCommunities'
-import { isLoadingCommunities, selectCommunities } from './AsideSlice'
+import { selectCommunities } from './AsideSlice'
 import { useSelector, useDispatch } from 'react-redux'
 import NavCommunities from '../../../Components/NavLinkCommunities'
 import { useParams } from 'react-router-dom'
@@ -12,7 +11,6 @@ import { getSearch } from '../SearchBar/SearchBarSlice'
 export default function Aside() {
   const [moreCommunities, setMoreCommunities] = useState(false)
   const { term, community } = useParams()
-  const loadingCommunities = useSelector(isLoadingCommunities)
   const communities = useSelector(selectCommunities)
   const dispatch = useDispatch()
 
@@ -31,14 +29,18 @@ export default function Aside() {
     if (communities.home.length === 0) {
       dispatch(getCommunities())
     }
-  }, [community])
+  }, [communities, community, dispatch])
 
   return (
     <aside className="aside">
       <div className="aside__communities">
         <h2 className="aside__communities__title">Communities</h2>
         <div className="aside__communities__container">
-          {loadingCommunities ? <SkeletonCommunities /> : mapCommunities}
+          {mapCommunities?.length > 0 ? (
+            mapCommunities
+          ) : (
+            <SkeletonCommunities />
+          )}
         </div>
         <div
           className="aside__communities__more-communities"
