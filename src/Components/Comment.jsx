@@ -41,9 +41,6 @@ export default function Comment({
           </div>
           {children && kind !== 'more' && (
             <div className="comment__body__dashboard__replies-btn dashboard-border">
-              <div className="comment__body__dashboard__replies-btn__img">
-                <img src={'icon'} alt="" />
-              </div>
               <span
                 className="comment__body__dashboard__replies-btn__btn"
                 onClick={() => handleClick(id)}
