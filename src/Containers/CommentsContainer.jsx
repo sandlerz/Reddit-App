@@ -1,10 +1,10 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import Comment from '../Components/Comment'
 
 export default function CommentsContainer({ data }) {
   const [repliesComments, setRepliesComments] = useState(false)
   const mapComments = []
-  const stateObj = {}
+  const stateObj = useMemo(() => ({}), [])
 
   const handleShowReplies = id => {
     setRepliesComments(prev => ({
@@ -58,7 +58,7 @@ export default function CommentsContainer({ data }) {
 
   useEffect(() => {
     setRepliesComments(stateObj)
-  }, [])
+  }, [stateObj])
 
   return (
     <div className="comments__container">
