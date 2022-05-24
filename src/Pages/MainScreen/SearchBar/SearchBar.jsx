@@ -9,6 +9,7 @@ import { getSearch } from './SearchBarSlice'
 
 export default function TopHeader() {
   const [textInput, setTextInput] = useState('')
+  const [darkMode, setDarkMode] = useState(true)
   const { term } = useParams()
   const allSubReddits = useSelector(selectAllSubReddits)
   const navigate = useNavigate()
@@ -31,12 +32,21 @@ export default function TopHeader() {
 
   const handleLogoNavigate = () => navigate('/')
 
+  const handleDarkMode = () => {
+    setDarkMode(prev => !prev)
+  }
+
   useEffect(() => {
     if (allSubReddits[term] === undefined && term) {
       dispatch(getSearch({ term: term, type: 'link' }))
       dispatch(getSearch({ term: term, type: 'sr' }))
     }
   }, [allSubReddits, dispatch, term])
+
+  useEffect(() => {
+    const body = document.body
+    body.classList.toggle('dark-mode')
+  }, [darkMode])
 
   return (
     <div className="headerTop">
@@ -56,7 +66,7 @@ export default function TopHeader() {
           onKeyDown={handleEnter}
         />
       </button>
-      <button className="headerTop__darkMode">
+      <button className="headerTop__darkMode" onClick={handleDarkMode}>
         <img src={Moon} alt="moon" />
       </button>
     </div>

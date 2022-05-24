@@ -42,7 +42,7 @@
   top: 0.125rem;
   text-decoration: underline;
   box-shadow: inset 0rem 0.625rem 0.625rem 0.125rem rgba(0, 0, 0, 0.25),
-    0rem 1.5625rem 1.25rem -0.3125rem rgba(63, 68, 70, 1);
+    0rem 1.5625rem 1.25rem -0.3125rem var(--navbar-box-shadow-fx);
   transition: box-shadow 0.2s;
   z-index: 0;
 }
